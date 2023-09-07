@@ -3,11 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-redux": "^7.1.25",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
-    "svgo": "^3.0.2",
+    "redux-saga": "^1.2.2",
+    "typescript": "^4.9.5",
     "web-vitals": "^3.1.1"
   },
   "scripts": {
@@ -33,18 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "Examen Final de Frontend IV",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ivanakowalczuk/ctd-esp-fe1-final.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ivanakowalczuk/ctd-esp-fe1-final/issues"
-  },
-  "homepage": "https://github.com/Ivanakowalczuk/ctd-esp-fe1-final#readme"
+  }
 }

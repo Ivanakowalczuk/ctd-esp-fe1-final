@@ -1,6 +1,7 @@
 import "./Detalle.css";
 import BotonFavorito from "../componentes/botones/boton-favorito.componente";
 import TarjetaEpisodio from "../componentes/episodios/tarjeta-episodio.componente";
+import { Episodio } from "../componentes/episodios/tarjeta-episodios.interface";
 
 /**
  * Esta es la pagina de detalle. Aqui se puede mostrar la vista sobre el personaje seleccionado junto con la lista de episodios en los que aparece
@@ -15,6 +16,12 @@ import TarjetaEpisodio from "../componentes/episodios/tarjeta-episodio.component
  * @returns la pagina de detalle
  */
 const PaginaDetalle = () => {
+    const episodio: Episodio = {
+     nombre: 'Juan',
+     numeroDeEpisodio: '1l',
+     fechaDeLanzamiento: new Date()
+    }
+
     return <div className="container">
         <h3>Rick Sanchez</h3>
         <div className={"detalle"}>
@@ -31,9 +38,9 @@ const PaginaDetalle = () => {
         </div>
         <h4>Lista de episodios donde apareció el personaje</h4>
         <div className={"episodios-grilla"}>
-            <TarjetaEpisodio />
-            <TarjetaEpisodio />
-            <TarjetaEpisodio />
+            <TarjetaEpisodio nombre={episodio.nombre} numeroDeEpisodio={episodio.numeroDeEpisodio} fechaDeLanzamiento={episodio.fechaDeLanzamiento}/>
+            <TarjetaEpisodio nombre={episodio.nombre} numeroDeEpisodio={episodio.numeroDeEpisodio} fechaDeLanzamiento={episodio.fechaDeLanzamiento}/>
+            <TarjetaEpisodio nombre={episodio.nombre} numeroDeEpisodio={episodio.numeroDeEpisodio} fechaDeLanzamiento={episodio.fechaDeLanzamiento}/>
         </div>
     </div>
 }
