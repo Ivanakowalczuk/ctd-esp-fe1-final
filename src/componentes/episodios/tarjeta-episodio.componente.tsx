@@ -1,6 +1,6 @@
-import {FC} from 'react';
-import { Episodio } from './tarjeta-episodios.interface';
+
 import './tarjeta-episodio.css';
+import { IEpisodio } from './tarjeta-episodios.interface';
 
 /**
  * Tarjeta para cada episodio dentro de la vista de personaje.
@@ -13,7 +13,7 @@ import './tarjeta-episodio.css';
 
 
 
-const TarjetaEpisodio: FC<Episodio> = ({nombre, numeroDeEpisodio, fechaDeLanzamiento}) => {
+const TarjetaEpisodio = ({nombre, numeroDeEpisodio, fechaDeLanzamiento}: IEpisodio) => {
     const fechaString = fechaDeLanzamiento.toLocaleDateString();
     return <div className="tarjeta-episodio">
             <h4>{nombre}</h4>

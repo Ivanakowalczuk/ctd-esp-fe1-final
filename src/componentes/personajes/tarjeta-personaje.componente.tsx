@@ -1,4 +1,3 @@
-import {FC} from 'react';
 import BotonFavorito from '../botones/boton-favorito.componente';
 import './tarjeta-personaje.css';
 import {ITarjetaPersonaje}  from './grilla-personajes.interface'
@@ -12,9 +11,8 @@ import {ITarjetaPersonaje}  from './grilla-personajes.interface'
  * @returns un JSX element 
  */
 const TarjetaPersonaje = ({nombre, imagenUrl, esFavorito }: ITarjetaPersonaje) => {
-
     return <div className="tarjeta-personaje">
-        <img src={imagenUrl} alt="Rick Sanchez"/>
+        <img src={imagenUrl} alt={nombre}/>
         <div className="tarjeta-personaje-body">
             <span>{nombre}</span>
             <BotonFavorito esFavorito={esFavorito} />

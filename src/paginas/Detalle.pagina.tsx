@@ -1,7 +1,7 @@
 import "./Detalle.css";
 import BotonFavorito from "../componentes/botones/boton-favorito.componente";
 import TarjetaEpisodio from "../componentes/episodios/tarjeta-episodio.componente";
-import { Episodio } from "../componentes/episodios/tarjeta-episodios.interface";
+import { IEpisodio } from "../componentes/episodios/tarjeta-episodios.interface";
 
 /**
  * Esta es la pagina de detalle. Aqui se puede mostrar la vista sobre el personaje seleccionado junto con la lista de episodios en los que aparece
@@ -16,7 +16,7 @@ import { Episodio } from "../componentes/episodios/tarjeta-episodios.interface";
  * @returns la pagina de detalle
  */
 const PaginaDetalle = () => {
-    const episodio: Episodio = {
+    const episodio: IEpisodio = {
      nombre: 'Juan',
      numeroDeEpisodio: '1l',
      fechaDeLanzamiento: new Date()

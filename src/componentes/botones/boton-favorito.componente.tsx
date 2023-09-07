@@ -1,4 +1,3 @@
-import {FC} from 'react';
 import { IBotonFavorito } from './boton-favorito.interface';
 import './boton-favorito.css';
 /**
