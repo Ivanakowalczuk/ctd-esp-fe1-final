@@ -1,5 +1,6 @@
-export interface IPaginacion {
-    anterior: boolean;
-    siguiente: boolean;
+
+  
+  export interface IPaginacion {
+    pageValue: number
   }
   

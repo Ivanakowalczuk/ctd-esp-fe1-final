@@ -3,6 +3,7 @@ import { GET_CHARACTERS } from './thunk';
 import { ICharacter} from '../../interface/character.interface';
 
 
+
 export type CharacterState = {
 allCharacters: ICharacter[],
 isLoading: boolean,
@@ -17,6 +18,18 @@ const initialState : CharacterState= {
     
 }
 
+// const initialStatePaginas: paginas = () => {
+//     const [pageCharacter, setpageCharacter] = useState(0)
+//     const upPage = () => {
+//              setpageCharacter(pageCharacter + 1);
+             
+//            };
+         
+//            const downPage = () => {
+//              setpageCharacter(pageCharacter - 1);
+            
+//            };
+// }
 export const todoSlice = createSlice({
     name : 'character',
     initialState: initialState,

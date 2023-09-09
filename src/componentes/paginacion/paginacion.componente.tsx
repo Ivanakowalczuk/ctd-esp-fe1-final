@@ -1,7 +1,9 @@
-import {FC} from 'react';
 import './paginacion.css';
+import { useAppDispatch, useAppSelector } from '../../store';
+import { DECREMENT_PAGE, INCREMENT_PAGE } from '../../store/paginacion/slice';
 import { IPaginacion } from './paginacion.interface';
-
+import { useEffect } from 'react';
+import { GET_CHARACTERS } from '../../store/character/thunk';
 
 /**
  * Componente que contiene los botones para paginar
@@ -11,11 +13,13 @@ import { IPaginacion } from './paginacion.interface';
  * 
  * @returns un JSX element 
  */
-const Paginacion = ({anterior, siguiente}: IPaginacion) => {
+const Paginacion = ({pageValue} : IPaginacion) => {
+    const dispatch = useAppDispatch()
 
     return <div className="paginacion">
-        <button disabled={!anterior} className={"primary"}>Anterior</button>
-        <button disabled={!siguiente} className={"primary"}>Siguiente</button>
+        <button onClick={()=> dispatch(DECREMENT_PAGE())} className={"primary"}>Anterior</button>
+        <span>Página {pageValue} </span>
+        <button onClick={()=>dispatch(INCREMENT_PAGE())} className={"primary"}>Siguiente</button>
     </div>
 }
 

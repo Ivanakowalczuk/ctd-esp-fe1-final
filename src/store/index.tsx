@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import characterReducer from "./character/slice";
+import paginacionReducer from "./paginacion/slice";
 
  const store = configureStore({
     reducer : {
-        // counter : counterReducer,
+        page: paginacionReducer,
         characters: characterReducer
     }
 });
+
 
 type RootState =  ReturnType<typeof store.getState>;
 type AppDispatch = typeof store.dispatch;

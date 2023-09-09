@@ -4,6 +4,7 @@ import './grilla-personajes.css';
 import TarjetaPersonaje from './tarjeta-personaje.componente';
 import { GET_CHARACTERS } from '../../store/character/thunk';
 
+
 /**
  * Grilla de personajes para la pagina de inicio
  * 
@@ -13,13 +14,11 @@ import { GET_CHARACTERS } from '../../store/character/thunk';
  * @returns un JSX element 
  */
 const GrillaPersonajes = () => {
+  
     const { allCharacters, isError, isLoading} = useAppSelector((state) => state.characters)
-    const dispatch = useAppDispatch()
+   
     const ref = useRef<HTMLInputElement>(null)
-    useEffect(() => {
-        dispatch(GET_CHARACTERS())
-
-      }, [])
+    
     
     return <div className="grilla-personajes">
          {isLoading ? <p>Loading...</p> :
