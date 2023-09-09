@@ -6,9 +6,6 @@ import { useEffect } from "react";
 import { GET_CHARACTERS } from "../store/character/thunk";
 
 
-
-
-
 /**
  * Esta es la pagina principal. Aquí se debera ver el panel de filtros junto con la grilla de personajes.
  * 
