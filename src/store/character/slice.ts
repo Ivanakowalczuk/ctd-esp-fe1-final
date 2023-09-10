@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { GET_CHARACTERS } from './thunk';
+import { GET_CHARACTERS, } from './thunk';
 import { ICharacter} from '../../interface/character.interface';
 
 
@@ -18,19 +18,8 @@ const initialState : CharacterState= {
     
 }
 
-// const initialStatePaginas: paginas = () => {
-//     const [pageCharacter, setpageCharacter] = useState(0)
-//     const upPage = () => {
-//              setpageCharacter(pageCharacter + 1);
-             
-//            };
-         
-//            const downPage = () => {
-//              setpageCharacter(pageCharacter - 1);
-            
-//            };
-// }
-export const todoSlice = createSlice({
+
+export const charactersSlice = createSlice({
     name : 'character',
     initialState: initialState,
     reducers : {
@@ -48,14 +37,15 @@ export const todoSlice = createSlice({
 
         builder.addCase(GET_CHARACTERS.rejected, ( state, action ) => {
             state.isLoading = false;
-            state.isError = action.error.message ??  'Hay un error';
+            state.isError = action.error.message ?? 'Ha ocurrido un error'
+            
+            
         })
+},
 
-
-}
 });
 
 
-const characterReducer = todoSlice.reducer;
-// export const {GET_CHARACTERS} = todoSlice.actions;
+const characterReducer = charactersSlice.reducer;
+
 export default characterReducer;

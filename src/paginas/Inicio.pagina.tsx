@@ -16,11 +16,15 @@ import { GET_CHARACTERS } from "../store/character/thunk";
  */
 
 const PaginaInicio = () => {
-    const { value: pageValue } = useAppSelector((state) => state.page)
     const dispatch = useAppDispatch()
-    useEffect(() => {
-        dispatch(GET_CHARACTERS(pageValue))
-        console.log(pageValue)
+    const { value: pageValue } = useAppSelector((state) => state.page)
+    const { allCharacters} = useAppSelector((state) => state.characters)
+
+  
+       useEffect(() => {
+        dispatch(GET_CHARACTERS({ dato: pageValue, parametro: 'page' }));
+
+    
       }, [pageValue])
 
     return <div className="container">
@@ -29,9 +33,11 @@ const PaginaInicio = () => {
             <button className="danger">Limpiar Filtro</button>
         </div>
         <Filtros />
-        <Paginacion pageValue={pageValue}/>
-        <GrillaPersonajes  />
-        <Paginacion pageValue={pageValue} />
+        <Paginacion pageValue={pageValue}/>    
+       
+        <GrillaPersonajes  initialCharacters={allCharacters}
+/>
+         <Paginacion pageValue={pageValue} />
     </div>
 }
 
