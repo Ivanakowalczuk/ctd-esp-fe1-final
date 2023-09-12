@@ -1,10 +1,15 @@
 export interface ICharacter {
-    id?:      number;
+    id:      number;
     name:    string;
-    status?:  string;
-    species?: string;
-    type?:    string;
-    gender?:  string;
     image:   string;
+    isFavorito: boolean
+    pageNext: string 
+    pagePrev: string 
 }
 
+export interface IAllCharacters{
+        allCharacters: ICharacter[]
+        nextPage: string 
+        prevPage: string 
+    }
+    

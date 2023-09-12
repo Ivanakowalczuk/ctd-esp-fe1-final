@@ -18,7 +18,7 @@ import { IEpisodio } from "../componentes/episodios/tarjeta-episodios.interface"
 const PaginaDetalle = () => {
     const episodio: IEpisodio = {
      nombre: 'Juan',
-     numeroDeEpisodio: '1l',
+     numeroDeEpisodio: '1l', 
      fechaDeLanzamiento: new Date()
     }
 
@@ -33,7 +33,7 @@ const PaginaDetalle = () => {
                     <p>Planeta: Earth</p>
                     <p>Genero: Male</p>
                 </div>
-                <BotonFavorito esFavorito={false} />
+                {/* <BotonFavorito esFavorito={false} /> */}
             </div>
         </div>
         <h4>Lista de episodios donde apareció el personaje</h4>

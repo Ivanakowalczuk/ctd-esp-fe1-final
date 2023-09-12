@@ -1,7 +1,7 @@
 import './paginacion.css';
-import { useAppDispatch } from '../../store';
-import { DECREMENT_PAGE, INCREMENT_PAGE } from '../../store/paginacion/slice';
-import { IPaginacion } from './paginacion.interface';
+import { useAppDispatch, useAppSelector } from '../../store';
+
+import { GET_CHARACTERS } from '../../store/character/thunk';
 
 /**
  * Componente que contiene los botones para paginar
@@ -11,12 +11,20 @@ import { IPaginacion } from './paginacion.interface';
  * 
  * @returns un JSX element 
  */
-const Paginacion = ({pageValue} : IPaginacion) => {
+const Paginacion = () => {
     const dispatch = useAppDispatch()
+    const {nextPage, prevPage} = useAppSelector((state)=> state.characters)
 
+    const handelNextPage = () =>{
+       dispatch(GET_CHARACTERS(nextPage))
+    }
+    const handelPrevPage = () =>{
+        dispatch(GET_CHARACTERS(prevPage))
+     }
     return <div className="paginacion">
-        <button onClick={()=> dispatch(DECREMENT_PAGE())} className={"primary"}>Anterior</button>
-         <button onClick={()=>dispatch(INCREMENT_PAGE())} className={"primary"}>Siguiente</button>
+       
+        <button onClick={handelPrevPage} disabled={!prevPage} className={"primary"}>Anterior</button>
+         <button onClick={handelNextPage} disabled={!nextPage} className={"primary"}>Siguiente</button>
     </div>
 }
 

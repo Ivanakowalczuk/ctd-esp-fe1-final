@@ -1,7 +1,8 @@
-import { useAppSelector } from '../../store';
+import {  useAppSelector } from '../../store';
 import './grilla-personajes.css';
 import TarjetaPersonaje from './tarjeta-personaje.componente';
-import { IGrillaPersonajes } from './grilla-personajes.interface';
+import { IGrillaPersonajes } from './personajes.interface';
+
 
 
 
@@ -14,16 +15,16 @@ import { IGrillaPersonajes } from './grilla-personajes.interface';
  * @returns un JSX element 
  */
 const GrillaPersonajes = ({initialCharacters} : IGrillaPersonajes) => {
-  
+ 
     const {isError, isLoading} = useAppSelector((state) => state.characters)
 
     
     return <div className="grilla-personajes">
-
+      
          {isLoading ? <p>Loading...</p> :
        
            initialCharacters?.map(character =>
-                <TarjetaPersonaje nombre={character.name} imagenUrl={character.image} key={character.id} esFavorito={false}/>
+                <TarjetaPersonaje nombre={character.name} imagenUrl={character.image} key={character.id} id={character.id} esFavorito={false}/>
            )}
           {isError  && <h3>No se encontraron resultados</h3>} 
       

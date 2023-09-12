@@ -1,4 +1,4 @@
 export interface IBotonFavorito {
     esFavorito: boolean;
-    onClick?: ()=> void;
+    onClick: (id:number)=> void;
 }

@@ -1,13 +1,14 @@
 import { useRef } from 'react';
 import './filtros.css';
 import { useAppDispatch } from '../../store';
-import { GET_CHARACTERS} from '../../store/character/thunk';
+import { GET_CHARACTERS_FILTER} from '../../store/character/thunk';
 
-const Filtros = () => {
+
+const Filtros = ( ) => {
     const ref = useRef<HTMLInputElement | null>(null)
     const dispatch = useAppDispatch()
 
-    const filterByName = () => {
+    const filterByName  = ()  => {
   
       if (!ref.current) return
   
@@ -16,10 +17,11 @@ const Filtros = () => {
         return
       }
   
-     const name = ref.current.value
+     const name  = ref.current.value
      console.log(name)
-      dispatch(()=>dispatch(GET_CHARACTERS({ dato: name, parametro: 'name' }))
-      )
+
+     
+    dispatch(GET_CHARACTERS_FILTER({name}))
 
     
      }
