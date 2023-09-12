@@ -8,9 +8,11 @@ export type CharacterState = {
 urlBase: string
 allCharacters: ICharacter[],
 isLoading: boolean,
-isError: string | null
-nextPage: string 
-prevPage: string 
+isError: string | null,
+nextPage: string,
+prevPage: string,
+esfavorito: boolean
+listFavoritos: ICharacter[]
 
 }
 
@@ -22,8 +24,8 @@ const initialState : CharacterState= {
     isError :  null,
     prevPage: '',
     nextPage: '',
-
-    
+    esfavorito: false,
+    listFavoritos: []
 }
 
 
@@ -34,12 +36,10 @@ export const charactersSlice = createSlice({
         ADD_FAVORITOS : (state, action : PayloadAction<number>) => {
             const findCharacter = state.allCharacters.find(character => character.id === action.payload);
             if(findCharacter){
-                findCharacter.isFavorito = true;
+                findCharacter.esFavorito = !state.esfavorito;
+                state.listFavoritos.push(findCharacter)
             }
         },
-
-
-   
       
     },
     extraReducers : (builder) =>{

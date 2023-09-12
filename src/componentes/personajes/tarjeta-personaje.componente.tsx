@@ -18,13 +18,13 @@ const TarjetaPersonaje = ({nombre, imagenUrl, esFavorito, id }: ITarjetaPersonaj
     const dispatch = useAppDispatch()
 
     const addFavorito = (id: number): void => {
-    dispatch(ADD_FAVORITOS (id))
+    dispatch(ADD_FAVORITOS(id))
   }
     return <div className="tarjeta-personaje">
         <img src={imagenUrl} alt={nombre}/>
         <div className="tarjeta-personaje-body">
             <span>{nombre}</span>
-            <BotonFavorito onClick={()=>addFavorito(id)} esFavorito={false} />
+            <BotonFavorito onClick={addFavorito} esFavorito={esFavorito} id={id}/>
         </div>
     </div>
 }

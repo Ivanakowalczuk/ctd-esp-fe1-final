@@ -24,7 +24,7 @@ const GrillaPersonajes = ({initialCharacters} : IGrillaPersonajes) => {
          {isLoading ? <p>Loading...</p> :
        
            initialCharacters?.map(character =>
-                <TarjetaPersonaje nombre={character.name} imagenUrl={character.image} key={character.id} id={character.id} esFavorito={false}/>
+                <TarjetaPersonaje nombre={character.name} imagenUrl={character.image} key={character.id} id={character.id} esFavorito={character.esFavorito}/>
            )}
           {isError  && <h3>No se encontraron resultados</h3>} 
       
