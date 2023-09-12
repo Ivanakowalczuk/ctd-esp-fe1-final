@@ -2,9 +2,8 @@ import Filtros from "../componentes/personajes/filtros.componente"
 import GrillaPersonajes from "../componentes/personajes/grilla-personajes.componente"
 import Paginacion from "../componentes/paginacion/paginacion.componente";
 import { useAppDispatch, useAppSelector } from "../store";
-import { useEffect } from "react";
-import { GET_CHARACTERS } from "../store/character/thunk";
-
+import { useEffect, useRef, useState } from "react";
+import { GET_CHARACTERS, GET_CHARACTERS_FILTER } from "../store/character/thunk";
 
 /**
  * Esta es la pagina principal. Aquí se debera ver el panel de filtros junto con la grilla de personajes.
@@ -17,9 +16,15 @@ import { GET_CHARACTERS } from "../store/character/thunk";
 
 const PaginaInicio = () => {
     const dispatch = useAppDispatch()
- 
     const { allCharacters, urlBase} = useAppSelector((state) => state.characters)
+    const ref = useRef<HTMLInputElement | null>(null)
+ 
+    
+    const [name, setName] = useState<string | null >('');
 
+    const handelCleanFilter = () =>{
+        setName(null)     
+    }
   
        useEffect(() => {
         dispatch(GET_CHARACTERS(urlBase));
@@ -28,9 +33,11 @@ const PaginaInicio = () => {
     return <div className="container">
         <div className="actions">
             <h3>Catálogo de Personajes</h3>
-            <button className="danger">Limpiar Filtro</button>
+            <button onClick={handelCleanFilter} className="danger">Limpiar Filtro</button>
         </div>
-        <Filtros />
+        <Filtros name={name} setName={setName}  urlBase ={urlBase} />
+
+
         <Paginacion />      
         <GrillaPersonajes  initialCharacters={allCharacters}/>
          <Paginacion  />

@@ -24,7 +24,7 @@ export const GET_CHARACTERS = createAsyncThunk(
    
       export const GET_CHARACTERS_FILTER = createAsyncThunk(
         'character/GET_CHARACTERS_FILTER',
-        async ({name}: {name: string}): Promise<IAllCharacters> => {
+        async ({name}: {name: string | null | undefined}): Promise<IAllCharacters> => {
                 
                 try {
                         const resp = await fetch(`https://rickandmortyapi.com/api/character/?name=${name}`)

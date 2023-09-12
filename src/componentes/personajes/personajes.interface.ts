@@ -14,6 +14,8 @@ export interface ITarjetaPersonaje {
   }
 
   export interface IFiltros{
-    pageValue: number
+    name: string | null,
+    setName: (name: string | null  )=> void
+    urlBase: string
   }
 

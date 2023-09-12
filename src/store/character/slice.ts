@@ -11,6 +11,7 @@ isLoading: boolean,
 isError: string | null
 nextPage: string 
 prevPage: string 
+
 }
 
 
@@ -20,7 +21,8 @@ const initialState : CharacterState= {
     isLoading: true,
     isError :  null,
     prevPage: '',
-    nextPage: ''
+    nextPage: '',
+
     
 }
 
@@ -34,7 +36,11 @@ export const charactersSlice = createSlice({
             if(findCharacter){
                 findCharacter.isFavorito = true;
             }
-    }
+        },
+
+
+   
+      
     },
     extraReducers : (builder) =>{
         builder.addCase(GET_CHARACTERS.pending, ( state   ) => {

@@ -1,30 +1,40 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './filtros.css';
 import { useAppDispatch } from '../../store';
-import { GET_CHARACTERS_FILTER} from '../../store/character/thunk';
+import {  GET_CHARACTERS, GET_CHARACTERS_FILTER} from '../../store/character/thunk';
+import { IFiltros } from './personajes.interface';
 
 
-const Filtros = ( ) => {
+const Filtros = ({name, setName, urlBase} : IFiltros) => {
     const ref = useRef<HTMLInputElement | null>(null)
     const dispatch = useAppDispatch()
-
-    const filterByName  = ()  => {
-  
+   
+    const deleteFilter = ()=>{
       if (!ref.current) return
-  
-      if (ref.current?.value.trim() === '') {
+      ref.current.value = ''
+      dispatch(GET_CHARACTERS(urlBase))
+
+}
+   
+       
+    const filterByName  = ()  => {
+      if (!ref.current) return
+     setName(ref.current.value)
+      if (name?.trim === null) {
         ref.current.value = '' 
         return
       }
-  
-     const name  = ref.current.value
      console.log(name)
-
-     
-    dispatch(GET_CHARACTERS_FILTER({name}))
-
-    
+    dispatch(GET_CHARACTERS_FILTER({name}))  
+   
      }
+    
+     useEffect(() => {
+     if(name === null){
+      deleteFilter()
+     } 
+    }, [name]);
+
     return <div className="filtros">
         <label htmlFor="nombre">Filtrar por nombre:</label>
         <input type="text" ref={ref} placeholder="Rick, Morty, Beth, Alien, ...etc" name="nombre" onChange={filterByName}/>
