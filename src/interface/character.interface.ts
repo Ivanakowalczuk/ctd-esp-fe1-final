@@ -3,10 +3,7 @@ export interface ICharacter {
     name:    string;
     image:   string;
     esFavorito: boolean
-    pageNext?: string 
-    pagePrev?: string 
-
-   
+     
 }
 
 export interface IAllCharacters{

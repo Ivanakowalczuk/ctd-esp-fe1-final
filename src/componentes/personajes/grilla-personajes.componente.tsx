@@ -34,7 +34,7 @@ const GrillaPersonajes = ({initialCharacters} : IGrillaPersonajes) => {
                
                 <TarjetaPersonaje name={character.name} image={character.image} key={character.id} id={character.id} esFavorito={character.esFavorito} />
            )}
-          {isError  && <h3>No se encontraron resultados</h3>} 
+                  { isError && <p>{isError}</p>}
       
     </div>
 }

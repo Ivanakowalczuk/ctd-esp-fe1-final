@@ -24,7 +24,6 @@ const TarjetaPersonaje = ({name, image, esFavorito, id}: ICharacter) => {
         <img src={image} alt={name}/>
         <div className="tarjeta-personaje-body">
             <span>{name}</span>
-            <p>{esFavorito ? 'es fav': 'no es fav'}</p>
             <BotonFavorito esFavorito={esFavorito} id={id} name={name} image={image}/>
         </div>
     </div>
