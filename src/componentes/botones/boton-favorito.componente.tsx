@@ -1,4 +1,3 @@
-import { IBotonFavorito } from './boton-favorito.interface';
 import './boton-favorito.css';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { ADD_FAVORITOS } from '../../store/character/slice';

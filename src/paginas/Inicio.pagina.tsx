@@ -3,7 +3,7 @@ import GrillaPersonajes from "../componentes/personajes/grilla-personajes.compon
 import Paginacion from "../componentes/paginacion/paginacion.componente";
 import { useAppDispatch, useAppSelector } from "../store";
 import { useEffect, useRef, useState } from "react";
-import { GET_CHARACTERS, GET_CHARACTERS_FILTER } from "../store/character/thunk";
+import { GET_CHARACTERS} from "../store/character/thunk";
 /**
  * Esta es la pagina principal. Aquí se debera ver el panel de filtros junto con la grilla de personajes.
  * 

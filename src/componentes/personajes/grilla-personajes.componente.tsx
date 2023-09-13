@@ -3,9 +3,6 @@ import './grilla-personajes.css';
 import TarjetaPersonaje from './tarjeta-personaje.componente';
 import { IGrillaPersonajes } from './personajes.interface';
 
-
-
-
 /**
  * Grilla de personajes para la pagina de inicio
  * 
