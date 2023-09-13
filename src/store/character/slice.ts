@@ -47,7 +47,7 @@ export const charactersSlice = createSlice({
         }      
       },
           
-        CLEAN_ALL_FAVORITOS:  (state, action : PayloadAction<IAllCharacters>) => {
+        CLEAN_ALL_FAVORITOS:  (state) => {
             state.listFavoritos = []
         }
       

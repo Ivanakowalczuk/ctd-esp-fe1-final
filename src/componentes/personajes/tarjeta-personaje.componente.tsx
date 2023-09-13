@@ -1,6 +1,5 @@
 import BotonFavorito from '../botones/boton-favorito.componente';
 import './tarjeta-personaje.css';
-import {ITarjetaPersonaje}  from './personajes.interface'
 import { ADD_FAVORITOS } from '../../store/character/slice';
 import { useAppDispatch } from '../../store';
 import { ICharacter } from '../../interface/character.interface';
@@ -16,9 +15,7 @@ import { ICharacter } from '../../interface/character.interface';
  */
 
 const TarjetaPersonaje = ({name, image, esFavorito, id}: ICharacter) => {
-    const dispatch = useAppDispatch()
-
- 
+    
       
     return <div className="tarjeta-personaje">
         <img src={image} alt={name}/>

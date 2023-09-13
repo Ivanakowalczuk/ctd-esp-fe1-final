@@ -17,7 +17,7 @@ const PaginaFavoritos = () => {
     const { listFavoritos, urlBase} = useAppSelector((state) => state.characters)
    
     const deleteFavoritos = () => {
-       
+       dispatch(CLEAN_ALL_FAVORITOS())
     }
     useEffect(() => {
         dispatch(GET_CHARACTERS(urlBase));
