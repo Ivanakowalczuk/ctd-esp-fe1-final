@@ -90,6 +90,13 @@ export const charactersSlice = createSlice({
             
             
         })
+
+    /**
+ * Usa el método GET_CHARACTES_FILTER para filtrar por nombre. Necesita recibir el nombre buscado que se ingresa en el input.
+ * @author 'Ivana Kowalczuk'
+ * @param {string} recibe como parámetro un string con la url solicitada. 
+ * @return {Array} retorna un array de personajes filtrados por nombre
+ */
         builder.addCase(GET_CHARACTERS_FILTER.pending, ( state   ) => {
             state.isLoading = true;
         })
