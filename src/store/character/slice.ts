@@ -31,17 +31,23 @@ export const charactersSlice = createSlice({
     name : 'character',
     initialState: initialState,
     reducers : {
-        ADD_FAVORITOS: (state, action: PayloadAction<number>) => {
-            const findCharacter = state.allCharacters.find(character => character.id === action.payload);
-            if (findCharacter) {
-              findCharacter.esFavorito = !findCharacter.esFavorito; // Cambia el estado del personaje
-              state.listFavoritos.push(findCharacter);
-              
-            }
-          },          
+      ADD_FAVORITOS: (state, action: PayloadAction<ICharacter>) => {      
+        const personaje = action.payload;
+        const esFavorito = state.listFavoritos.find(
+          (fav) => fav.id === personaje.id
+        );
+        if (esFavorito) {
+          esFavorito.esFavorito = false;
+          state.listFavoritos = state.listFavoritos.filter(
+            (item) => item.id !== esFavorito.id
+          );
+        } else {
+          personaje.esFavorito = true;
+          state.listFavoritos.push(personaje);
+        }      
+      },
           
-
-        CLEAN_ALL_FAVORITOS:  (state, action : PayloadAction<IAllCharacters[]>) => {
+        CLEAN_ALL_FAVORITOS:  (state, action : PayloadAction<IAllCharacters>) => {
             state.listFavoritos = []
         }
       

@@ -3,9 +3,9 @@ export interface ICharacter {
     name:    string;
     image:   string;
     esFavorito: boolean
-    pageNext: string 
-    pagePrev: string 
-    source: string
+    pageNext?: string 
+    pagePrev?: string 
+
    
 }
 

@@ -3,6 +3,7 @@ import './tarjeta-personaje.css';
 import {ITarjetaPersonaje}  from './personajes.interface'
 import { ADD_FAVORITOS } from '../../store/character/slice';
 import { useAppDispatch } from '../../store';
+import { ICharacter } from '../../interface/character.interface';
 
 
 /**
@@ -14,17 +15,17 @@ import { useAppDispatch } from '../../store';
  * @returns un JSX element 
  */
 
-const TarjetaPersonaje = ({nombre, imagenUrl, esFavorito, id}: ITarjetaPersonaje) => {
+const TarjetaPersonaje = ({name, image, esFavorito, id}: ICharacter) => {
     const dispatch = useAppDispatch()
 
-    const addFavorito = (id: number): void => {
-    dispatch(ADD_FAVORITOS(id))
-  }
+ 
+      
     return <div className="tarjeta-personaje">
-        <img src={imagenUrl} alt={nombre}/>
+        <img src={image} alt={name}/>
         <div className="tarjeta-personaje-body">
-            <span>{nombre}</span>
-            <BotonFavorito onClick={addFavorito} esFavorito={esFavorito} id={id} />
+            <span>{name}</span>
+            <p>{esFavorito ? 'es fav': 'no es fav'}</p>
+            <BotonFavorito esFavorito={esFavorito} id={id} name={name} image={image}/>
         </div>
     </div>
 }

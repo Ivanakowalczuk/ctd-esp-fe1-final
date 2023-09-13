@@ -15,13 +15,18 @@ import { CLEAN_ALL_FAVORITOS } from "../store/character/slice";
 const PaginaFavoritos = () => {
     const dispatch = useAppDispatch()
     const { listFavoritos, urlBase} = useAppSelector((state) => state.characters)
+   
+    const deleteFavoritos = () => {
+       
+    }
     useEffect(() => {
         dispatch(GET_CHARACTERS(urlBase));
       }, [])
-    return <div className="container">
+   
+   return <div className="container">
         <div className="actions">
             <h3>Personajes Favoritos</h3>
-            <button onClick={()=>dispatch(CLEAN_ALL_FAVORITOS)} className="danger">Limpiar Favoritos</button>
+            <button onClick={deleteFavoritos} className="danger">Limpiar Favoritos</button>
         </div>
         <GrillaPersonajes initialCharacters={listFavoritos} /> 
     </div>

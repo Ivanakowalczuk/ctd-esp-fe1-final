@@ -5,13 +5,14 @@ export interface ITarjetaPersonaje {
     id: number
     nombre: string;
     imagenUrl: string;
-    esFavorito: boolean
+    esFavorito: boolean;
+   
 
    
   }
 
   export interface IGrillaPersonajes{
-    initialCharacters: ICharacter[]
+    initialCharacters: ICharacter[];
 
   }
 

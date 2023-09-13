@@ -14,7 +14,7 @@ import { GET_CHARACTERS, GET_CHARACTERS_FILTER } from "../store/character/thunk"
  */
 const PaginaInicio = () => {
     const dispatch = useAppDispatch()
-    const { allCharacters, urlBase} = useAppSelector((state) => state.characters)
+    const { allCharacters, urlBase, listFavoritos} = useAppSelector((state) => state.characters)
     const ref = useRef<HTMLInputElement | null>(null)
     const [name, setName] = useState<string | null >('');
     const handelCleanFilter = () =>{setName(null) }
@@ -30,7 +30,7 @@ const PaginaInicio = () => {
         </div>
         <Filtros name={name} setName={setName}  urlBase ={urlBase} />
         <Paginacion />      
-        <GrillaPersonajes  initialCharacters={allCharacters} />
+        <GrillaPersonajes  initialCharacters={allCharacters}  />
          <Paginacion  />
     </div>
 }
