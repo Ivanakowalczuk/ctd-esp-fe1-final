@@ -14,6 +14,13 @@ const BotonFavorito = ({esFavorito,  id, name, image }: ICharacter) => {
     const dispatch = useAppDispatch()
     const {isError, isLoading, listFavoritos, allCharacters} = useAppSelector((state) => state.characters)
   
+
+       
+/**
+ * Dispara la acción de Agregar a favoritos
+ * @author 'Ivana Kowalczuk'
+ * @return {Array} un array de favoritos
+ */ 
     const addFavorito = () => {
         console.log('Botón Favorito clickeado');
         dispatch(ADD_FAVORITOS( {esFavorito,  id, name, image} ));

@@ -9,6 +9,12 @@ const Filtros = ({name, setName, urlBase} : IFiltros) => {
     const ref = useRef<HTMLInputElement | null>(null)
     const dispatch = useAppDispatch()
    
+   
+    /**
+ * Borra filtro de búsqueda por nombre y vuelve a disparar la acción GET_CHARACTERS.
+ * @author 'Ivana Kowalczuk'
+ * @return {string} retorna un string vacío para darle valor vacío al value del input al que se refiere el useRef
+ */
     const deleteFilter = ()=>{
       if (!ref.current) return
       ref.current.value = ''
@@ -16,7 +22,11 @@ const Filtros = ({name, setName, urlBase} : IFiltros) => {
 
 }
    
-       
+/**
+ * Filtra por nombre disparando la acción GET_CHARACTERS_FILTER
+ * @author 'Ivana Kowalczuk'
+ * @return {Array}
+ */ 
     const filterByName  = ()  => {
       if (!ref.current) return
      setName(ref.current.value)

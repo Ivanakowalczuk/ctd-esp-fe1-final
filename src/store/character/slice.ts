@@ -31,6 +31,12 @@ export const charactersSlice = createSlice({
     name : 'character',
     initialState: initialState,
     reducers : {
+             
+/**
+ * Agrega a favoritos un nuevo personaje agregándolo al estado de la propiedad listfavoritos[]
+ * @author 'Ivana Kowalczuk'
+ * @return {Object} retorna el objeto, personaje que se agrega al array de personajes favoritos
+ */
       ADD_FAVORITOS: (state, action: PayloadAction<ICharacter>) => {      
         const personaje = action.payload;
         const esFavorito = state.listFavoritos.find(
@@ -46,17 +52,31 @@ export const charactersSlice = createSlice({
           state.listFavoritos.push(personaje);
         }      
       },
-          
+      
+             
+/**
+ * Limpia el estado del array de favoritos para dejarlo como array vacío
+ * @author 'Ivana Kowalczuk'
+ * @return {Array} retorna un array vacío para el estado de listFavoritos[]
+ */
         CLEAN_ALL_FAVORITOS:  (state) => {
             state.listFavoritos = []
         }
       
     },
     extraReducers : (builder) =>{
+
+             
+
         builder.addCase(GET_CHARACTERS.pending, ( state   ) => {
             state.isLoading = true;
         })
-
+/**
+ * Usa el método GET_CHARACTES para guardar en el estado del array allCharacters además, g
+ * uarda los estados de la página anterior y la siguiente
+ * @author 'Ivana Kowalczuk'
+ * @return {Array} retorna un array de personajes
+ */
         builder.addCase(GET_CHARACTERS.fulfilled, (state, action : PayloadAction<IAllCharacters>) => {
             state.allCharacters = action.payload.allCharacters;
             state.prevPage = action.payload.prevPage

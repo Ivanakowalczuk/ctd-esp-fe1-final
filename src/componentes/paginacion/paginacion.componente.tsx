@@ -15,9 +15,22 @@ const Paginacion = () => {
     const dispatch = useAppDispatch()
     const {nextPage, prevPage} = useAppSelector((state)=> state.characters)
 
+       
+/**
+ * Dispara la acción GET_CHARACTERS usando la url de la página siguiente
+ * @author 'Ivana Kowalczuk'
+ * @return {Array}
+ */ 
     const handelNextPage = () =>{
        dispatch(GET_CHARACTERS(nextPage))
     }
+
+           
+/**
+ * Dispara la acción GET_CHARACTERS usando la url de la página anterior
+ * @author 'Ivana Kowalczuk'
+ * @return {Array} retorna un array de personajes de la página siguiente.
+ */
     const handelPrevPage = () =>{
         dispatch(GET_CHARACTERS(prevPage))
      }

@@ -14,9 +14,11 @@ import { GET_CHARACTERS} from "../store/character/thunk";
  */
 const PaginaInicio = () => {
     const dispatch = useAppDispatch()
-    const { allCharacters, urlBase, listFavoritos} = useAppSelector((state) => state.characters)
+    const { allCharacters, urlBase} = useAppSelector((state) => state.characters)
     const ref = useRef<HTMLInputElement | null>(null)
     const [name, setName] = useState<string | null >('');
+    
+    
     const handelCleanFilter = () =>{setName(null) }
     
        useEffect(() => {
