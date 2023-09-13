@@ -6,11 +6,13 @@ export interface ITarjetaPersonaje {
     nombre: string;
     imagenUrl: string;
     esFavorito: boolean
+
    
   }
 
   export interface IGrillaPersonajes{
     initialCharacters: ICharacter[]
+
   }
 
   export interface IFiltros{

@@ -14,7 +14,7 @@ import { useAppDispatch } from '../../store';
  * @returns un JSX element 
  */
 
-const TarjetaPersonaje = ({nombre, imagenUrl, esFavorito, id }: ITarjetaPersonaje) => {
+const TarjetaPersonaje = ({nombre, imagenUrl, esFavorito, id}: ITarjetaPersonaje) => {
     const dispatch = useAppDispatch()
 
     const addFavorito = (id: number): void => {
@@ -24,7 +24,7 @@ const TarjetaPersonaje = ({nombre, imagenUrl, esFavorito, id }: ITarjetaPersonaj
         <img src={imagenUrl} alt={nombre}/>
         <div className="tarjeta-personaje-body">
             <span>{nombre}</span>
-            <BotonFavorito onClick={addFavorito} esFavorito={esFavorito} id={id}/>
+            <BotonFavorito onClick={addFavorito} esFavorito={esFavorito} id={id} />
         </div>
     </div>
 }

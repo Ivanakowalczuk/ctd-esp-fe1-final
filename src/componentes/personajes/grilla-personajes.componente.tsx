@@ -16,7 +16,7 @@ import { IGrillaPersonajes } from './personajes.interface';
  */
 const GrillaPersonajes = ({initialCharacters} : IGrillaPersonajes) => {
  
-    const {isError, isLoading} = useAppSelector((state) => state.characters)
+    const {isError, isLoading, listFavoritos} = useAppSelector((state) => state.characters)
 
     
     return <div className="grilla-personajes">
@@ -24,6 +24,7 @@ const GrillaPersonajes = ({initialCharacters} : IGrillaPersonajes) => {
          {isLoading ? <p>Loading...</p> :
        
            initialCharacters?.map(character =>
+               
                 <TarjetaPersonaje nombre={character.name} imagenUrl={character.image} key={character.id} id={character.id} esFavorito={character.esFavorito}/>
            )}
           {isError  && <h3>No se encontraron resultados</h3>} 

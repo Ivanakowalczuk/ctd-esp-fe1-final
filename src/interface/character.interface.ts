@@ -5,6 +5,8 @@ export interface ICharacter {
     esFavorito: boolean
     pageNext: string 
     pagePrev: string 
+    source: string
+   
 }
 
 export interface IAllCharacters{

@@ -11,7 +11,6 @@ isLoading: boolean,
 isError: string | null,
 nextPage: string,
 prevPage: string,
-esfavorito: boolean
 listFavoritos: ICharacter[]
 
 }
@@ -24,7 +23,6 @@ const initialState : CharacterState= {
     isError :  null,
     prevPage: '',
     nextPage: '',
-    esfavorito: false,
     listFavoritos: []
 }
 
@@ -33,13 +31,19 @@ export const charactersSlice = createSlice({
     name : 'character',
     initialState: initialState,
     reducers : {
-        ADD_FAVORITOS : (state, action : PayloadAction<number>) => {
+        ADD_FAVORITOS: (state, action: PayloadAction<number>) => {
             const findCharacter = state.allCharacters.find(character => character.id === action.payload);
-            if(findCharacter){
-                findCharacter.esFavorito = !state.esfavorito;
-                state.listFavoritos.push(findCharacter)
+            if (findCharacter) {
+              findCharacter.esFavorito = !findCharacter.esFavorito; // Cambia el estado del personaje
+              state.listFavoritos.push(findCharacter);
+              
             }
-        },
+          },          
+          
+
+        CLEAN_ALL_FAVORITOS:  (state, action : PayloadAction<IAllCharacters[]>) => {
+            state.listFavoritos = []
+        }
       
     },
     extraReducers : (builder) =>{
@@ -83,5 +87,5 @@ export const charactersSlice = createSlice({
 
 
 const characterReducer = charactersSlice.reducer;
-export const {ADD_FAVORITOS} = charactersSlice.actions;
+export const {ADD_FAVORITOS,  CLEAN_ALL_FAVORITOS} = charactersSlice.actions;
 export default characterReducer;

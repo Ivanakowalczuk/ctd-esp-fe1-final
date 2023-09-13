@@ -5,7 +5,6 @@ import characterReducer from "./character/slice";
 
  const store = configureStore({
     reducer : {
-       
         characters: characterReducer,
     }
 });

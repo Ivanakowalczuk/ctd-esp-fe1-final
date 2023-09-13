@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import GrillaPersonajes from "../componentes/personajes/grilla-personajes.componente";
 import { useAppDispatch, useAppSelector } from "../store";
 import { GET_CHARACTERS } from "../store/character/thunk";
+import { CLEAN_ALL_FAVORITOS } from "../store/character/slice";
 
 /**
  * Esta es la pagina de favoritos. Aquí se deberan ver todos los personajes marcados como favoritos
@@ -13,16 +14,16 @@ import { GET_CHARACTERS } from "../store/character/thunk";
  */
 const PaginaFavoritos = () => {
     const dispatch = useAppDispatch()
-    const { listFavoritos, urlBase, esfavorito} = useAppSelector((state) => state.characters)
+    const { listFavoritos, urlBase} = useAppSelector((state) => state.characters)
     useEffect(() => {
         dispatch(GET_CHARACTERS(urlBase));
       }, [])
     return <div className="container">
         <div className="actions">
             <h3>Personajes Favoritos</h3>
-            <button className="danger">Test Button</button>
+            <button onClick={()=>dispatch(CLEAN_ALL_FAVORITOS)} className="danger">Limpiar Favoritos</button>
         </div>
-        <GrillaPersonajes initialCharacters={listFavoritos}/> 
+        <GrillaPersonajes initialCharacters={listFavoritos} /> 
     </div>
 }
 
