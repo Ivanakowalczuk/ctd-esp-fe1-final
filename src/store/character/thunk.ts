@@ -38,7 +38,7 @@ export const GET_CHARACTERS = createAsyncThunk(
  * Llama a la API y trae la data filtrada por nombre. Necesita recibir el nombre buscado.
  * @author 'Ivana Kowalczuk'
  * @param {string} recibe como parámetro un string con el nombre buscado o un null si el nombre buscado no existe
- * @return {Array} retorna un array de personajes filtrados por nombre. 
+ * @return {IAllCharacters} retorna un objeto que contirn array de personajes filtrados por nombre, pagina siguiente y página anterior 
  */
       export const GET_CHARACTERS_FILTER = createAsyncThunk(
         'character/GET_CHARACTERS_FILTER',
@@ -66,7 +66,7 @@ export const GET_CHARACTERS = createAsyncThunk(
  * Llama a la API y trae un personaje por ID. 
  * @author 'Ivana Kowalczuk'
  * @param {string} recibe como parámetro un número de id. 
- * @return {object}
+ * @return {ICharacter} retorna un objeto de tipo ICharachter
  */
 
 export const GET_CHARACTER_ID = createAsyncThunk('character/GET_CHARACTERS_ID', async (id: number) : Promise<ICharacter>=> {

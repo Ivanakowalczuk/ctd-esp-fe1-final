@@ -35,6 +35,8 @@ export const charactersSlice = createSlice({
 /**
  * Agrega a favoritos un nuevo personaje agregándolo al estado de la propiedad listfavoritos[]
  * @author 'Ivana Kowalczuk'
+ * @param { WritableDraft<CharacterState> } state 
+ * @param {PayloadAction<ICharacter>} action 
  * @return {Object} retorna el objeto, personaje que se agrega al array de personajes favoritos
  */
       ADD_FAVORITOS: (state, action: PayloadAction<ICharacter>) => {      
@@ -57,6 +59,7 @@ export const charactersSlice = createSlice({
 /**
  * Limpia el estado del array de favoritos para dejarlo como array vacío
  * @author 'Ivana Kowalczuk'
+ * @param {WritableDraft<CharacterState>} state
  * @return {Array} retorna un array vacío para el estado de listFavoritos[]
  */
         CLEAN_ALL_FAVORITOS:  (state) => {
@@ -66,17 +69,19 @@ export const charactersSlice = createSlice({
     },
     extraReducers : (builder) =>{
 
-             
+        /**
+ * Usa el método GET_CHARACTES para guardar en el estado del array allCharacters además, g
+ * uarda los estados de la página anterior y la siguiente
+ * @author 'Ivana Kowalczuk'
+ * @param { WritableDraft<CharacterState>} state 
+ * @param {PayloadAction<IAllCharacters>} action
+ * @return {Array} retorna un array de personajes
+ */     
 
         builder.addCase(GET_CHARACTERS.pending, ( state   ) => {
             state.isLoading = true;
         })
-/**
- * Usa el método GET_CHARACTES para guardar en el estado del array allCharacters además, g
- * uarda los estados de la página anterior y la siguiente
- * @author 'Ivana Kowalczuk'
- * @return {Array} retorna un array de personajes
- */
+
         builder.addCase(GET_CHARACTERS.fulfilled, (state, action : PayloadAction<IAllCharacters>) => {
             state.allCharacters = action.payload.allCharacters;
             state.prevPage = action.payload.prevPage
@@ -94,8 +99,8 @@ export const charactersSlice = createSlice({
     /**
  * Usa el método GET_CHARACTES_FILTER para filtrar por nombre. Necesita recibir el nombre buscado que se ingresa en el input.
  * @author 'Ivana Kowalczuk'
- * @param {string} recibe como parámetro un string con la url solicitada. 
- * @return {Array} retorna un array de personajes filtrados por nombre
+ * @param {WritableDraft<CharacterState>} state 
+ * @return {Array} retorna un array de personajes filtrados por nombre de tipo IAllCharacters
  */
         builder.addCase(GET_CHARACTERS_FILTER.pending, ( state   ) => {
             state.isLoading = true;
