@@ -3,6 +3,7 @@ import './filtros.css';
 import { useAppDispatch } from '../../store';
 import {  GET_CHARACTERS, GET_CHARACTERS_FILTER} from '../../store/character/thunk';
 import { IFiltros } from './personajes.interface';
+import { IAllCharacters } from '../../interface/character.interface';
 
 
 const Filtros = ({name, setName, urlBase} : IFiltros) => {
@@ -25,7 +26,7 @@ const Filtros = ({name, setName, urlBase} : IFiltros) => {
 /**
  * Filtra por nombre disparando la acción GET_CHARACTERS_FILTER
  * @author 'Ivana Kowalczuk'
- * @return {Array}
+ * @return {IAllCharacters} retorna un array de personajes filtrados por el nombre
  */ 
     const filterByName  = ()  => {
       if (!ref.current) return
