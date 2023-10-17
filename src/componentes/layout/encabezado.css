@@ -1,9 +1,8 @@
 header {
-  background-color: white;
+  background-color: rgb(47, 155, 169);
   border-bottom: 1px solid #d0d0d0;
   width: calc(100% - 60px);
-  color: black;
-  padding: 25px 30px;
+   padding: 25px 30px;
 }
 
 header > div {
@@ -11,10 +10,14 @@ header > div {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
 }
 
 header > div h2{
-  margin: 0
+  margin: 0;
+  color: white;
+  opacity: 0.8;
+  text-align: center;
 }
 
 header > div nav ul {
@@ -26,17 +29,29 @@ header > div nav ul {
 
 header > div nav ul li {
   list-style: none;
+
 }
 
 header > div nav ul li a {
   padding: 5px 20px;
   text-decoration: none;
-  color: black;
+  color:  white;
   opacity: 0.8;
   font-size: 16px;
   font-weight: 500;
 }
 
 header > div nav ul li a:hover {
-  color: rgba(57, 146, 255, 1);
+  color: rgb(39, 43, 47);
+}
+
+@media (max-width: 450px){
+  header {
+    width: 100%;
+  }
+
+  header > div {
+    flex-direction: column;
+   }
+  
 }

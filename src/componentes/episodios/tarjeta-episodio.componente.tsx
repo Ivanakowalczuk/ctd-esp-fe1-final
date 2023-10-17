@@ -1,6 +1,8 @@
 
+import { useEffect } from 'react';
 import './tarjeta-episodio.css';
 import { IEpisodio } from './tarjeta-episodios.interface';
+import { GET_CHARACTER_ID } from '../../store/character/thunk';
 
 /**
  * Tarjeta para cada episodio dentro de la vista de personaje.
@@ -13,7 +15,8 @@ import { IEpisodio } from './tarjeta-episodios.interface';
 
 
 
-const TarjetaEpisodio = ({nombre, numeroDeEpisodio, fechaDeLanzamiento}: IEpisodio) => {
+const TarjetaEpisodio = ({nombre, numeroDeEpisodio, fechaDeLanzamiento, id}: IEpisodio) => {
+   
     const fechaString = fechaDeLanzamiento.toLocaleDateString();
     return <div className="tarjeta-episodio">
             <h4>{nombre}</h4>

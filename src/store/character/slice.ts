@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { GET_CHARACTERS, GET_CHARACTERS_FILTER, } from './thunk';
+import { GET_CHARACTERS, GET_CHARACTERS_FILTER, GET_CHARACTER_ID, } from './thunk';
 import { IAllCharacters, ICharacter} from '../../interface/character.interface';
 
 
 
 export type CharacterState = {
-urlBase: string
+
 allCharacters: ICharacter[],
 isLoading: boolean,
 isError: string | null,
@@ -17,7 +17,7 @@ listFavoritos: ICharacter[]
 
 
 const initialState : CharacterState= {
-    urlBase: 'https://rickandmortyapi.com/api/character/',
+  
     allCharacters: [],
     isLoading: true,
     isError :  null,
@@ -119,6 +119,7 @@ export const charactersSlice = createSlice({
             
             
         })
+
 },
 
 });

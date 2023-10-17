@@ -1,6 +1,9 @@
 import BotonFavorito from '../botones/boton-favorito.componente';
 import './tarjeta-personaje.css';
 import { ICharacter } from '../../interface/character.interface';
+import { useEffect } from 'react';
+import { GET_CHARACTER_ID } from '../../store/character/thunk';
+import { Link } from 'react-router-dom';
 
 
 /**
@@ -13,12 +16,15 @@ import { ICharacter } from '../../interface/character.interface';
  */
 
 const TarjetaPersonaje = ({name, image, esFavorito, id}: ICharacter) => {  
+
     return <div className="tarjeta-personaje">
+        <Link to={`./detalle/${id}`}>
         <img src={image} alt={name}/>
         <div className="tarjeta-personaje-body">
             <span>{name}</span>
             <BotonFavorito esFavorito={esFavorito} id={id} name={name} image={image}/>
         </div>
+        </Link>
     </div>
 }
 

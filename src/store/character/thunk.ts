@@ -1,9 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import { IAllCharacters, ICharacter } from '../../interface/character.interface'
-
-
-
-
+import { ICharachterById } from './sliceOneCharacter';
 
 /**
  * Llama a la API y trae la data. Necesita recibir la URL solicitada.
@@ -11,6 +8,7 @@ import { IAllCharacters, ICharacter } from '../../interface/character.interface'
  * @param {string} recibe como parámetro un string con la url solicitada. 
  * @return {Array}
  */
+export const urlBase= 'https://rickandmortyapi.com/api/character/'
 
 export const GET_CHARACTERS = createAsyncThunk(
         'character/GET_CHARACTERS',
@@ -69,8 +67,35 @@ export const GET_CHARACTERS = createAsyncThunk(
  * @return {ICharacter} retorna un objeto de tipo ICharachter
  */
 
-export const GET_CHARACTER_ID = createAsyncThunk('character/GET_CHARACTERS_ID', async (id: number) : Promise<ICharacter>=> {
-        const resp = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
-        const data = await resp.json();
-        return data;
+      export interface characterByID{
+        name: string;
+        image: string;
+        gender: string;
+        episode:[];
+        location: string,    
+        species: string,
+        status: string
+        
+      }
+export const GET_CHARACTER_ID = createAsyncThunk('character/GET_CHARACTERS_ID', async (id: string | undefined) : Promise<characterByID>=> {
+  try{
+    const resp = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+    const data = await resp.json();
+    const characterById: characterByID = {
+    name: data.name,
+    image: data.image,
+    gender: data.gender,
+    episode:data.episode,
+    location: data.location.name,
+    species: data.species,
+    status: data.status
+
+     
+}
+       return characterById;
+  }catch(error){
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+      
 })

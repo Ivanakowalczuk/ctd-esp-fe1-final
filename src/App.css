@@ -1,4 +1,7 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
@@ -19,7 +22,7 @@ button.primary {
     font-weight: 500;
     border: 0;
     border-radius: 5px;
-    background-color: rgb(10, 77, 157);
+    background-color: rgb(47, 155, 169);
     color: white;
 }
 
@@ -35,8 +38,8 @@ button.danger {
     font-weight: 500;
     border: 0;
     border-radius: 5px;
-    background-color: #8d2020;
-    color: white;
+    border: solid  rgb(47, 155, 169);
+    color:rgb(47, 155, 169);
 }
 
 @media (max-width: 1280px) {

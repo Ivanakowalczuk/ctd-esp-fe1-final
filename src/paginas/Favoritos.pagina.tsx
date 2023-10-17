@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import GrillaPersonajes from "../componentes/personajes/grilla-personajes.componente";
 import { useAppDispatch, useAppSelector } from "../store";
-import { GET_CHARACTERS } from "../store/character/thunk";
+import { GET_CHARACTERS, urlBase } from "../store/character/thunk";
 import { CLEAN_ALL_FAVORITOS } from "../store/character/slice";
 
 /**
@@ -14,7 +14,7 @@ import { CLEAN_ALL_FAVORITOS } from "../store/character/slice";
  */
 const PaginaFavoritos = () => {
     const dispatch = useAppDispatch()
-    const { listFavoritos, urlBase} = useAppSelector((state) => state.characters)
+    const { listFavoritos} = useAppSelector((state) => state.characters)
    
     const deleteFavoritos = () => {
        dispatch(CLEAN_ALL_FAVORITOS())
